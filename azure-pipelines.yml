@@ -22,9 +22,11 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- script: cp target/*.jar $(Build.ArtifactStagingDirectory)
+- script: |
+    mkdir -p $(Build.ArtifactStagingDirectory)
+    cp target/*.war $(Build.ArtifactStagingDirectory)
 
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
-    artifact: 'jar-file'
+    artifact: 'webapp'
