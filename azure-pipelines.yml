@@ -7,6 +7,10 @@ trigger:
 - main
 - feature/*
 
+# Pull Requests targeting the main branch
+pr:
+- main
+
 pool:
   vmImage: ubuntu-latest
 
